@@ -1,10 +1,9 @@
-import React from 'react'
-
-const Question = () => {
+import Options from './Options'
+const Question = ({ question, dispatch, answer }) => {
   return (
     <div>
-      <h1>Question</h1>
-      <h1>Question</h1>
+      <h4>{question.question}</h4>
+      <Options question={question} dispatch={dispatch} answer={answer} />
     </div>
   )
 }
