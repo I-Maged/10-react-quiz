@@ -1,22 +1,17 @@
-import React from 'react'
+import { useQuiz } from '../contexts/useQuiz'
 
-const NextButton = ({ dispatch, answer, index, numQuestions }) => {
+const NextButton = () => {
+  const { answer, index, numQuestions, nextQuestion, finishQuiz } = useQuiz()
   if (answer === null) return null
 
   return (
     <>
       {index < numQuestions - 1 ? (
-        <button
-          className='btn btn-ui'
-          onClick={() => dispatch({ type: 'nextQuestion' })}
-        >
+        <button className='btn btn-ui' onClick={nextQuestion}>
           Next
         </button>
       ) : (
-        <button
-          className='btn btn-ui'
-          onClick={() => dispatch({ type: 'finish' })}
-        >
+        <button className='btn btn-ui' onClick={finishQuiz}>
           Finish
         </button>
       )}
